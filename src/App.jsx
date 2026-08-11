@@ -10,6 +10,11 @@ import {
   useLocation
 } from "react-router-dom";
 
+import StudentLogin from "./pages/StudentLogin.jsx";
+import StudentPortal from "./pages/StudentPortal.jsx";
+import AdminPortal from "./pages/AdminPortal.jsx";
+import EnrollmentFlow from "./pages/EnrollmentFlow.jsx";
+
 
 /* =========================================================
    SCROLL ANIMATION
@@ -187,6 +192,13 @@ function Navigation() {
             onClick={closeMenu}
           >
             Why Choose Us
+          </Link>
+
+          <Link
+            to="/student-login"
+            onClick={closeMenu}
+          >
+            Student Login
           </Link>
 
           <Link
@@ -511,7 +523,7 @@ const programs = [
     icon: "🩸",
     title: "Phlebotomy",
     path: "/programs/phlebotomy",
-    image: "/images/phlebotomy.jpg",
+    image: "/images/programs/phlebotomy.svg",
     text:
       "Build confidence with hands-on blood collection skills, safety, equipment, specimen handling, and patient care."
   },
@@ -520,7 +532,7 @@ const programs = [
     icon: "💗",
     title: "EKG Skills",
     path: "/programs/ekg",
-    image: "/images/ekg.jpg",
+    image: "/images/programs/ekg.svg",
     text:
       "Learn foundational EKG skills, patient preparation, equipment setup, lead placement, and professional technique."
   },
@@ -529,7 +541,7 @@ const programs = [
     icon: "🧪",
     title: "POCT",
     path: "/programs/poct",
-    image: "/images/poct.jpg",
+    image: "/images/programs/poct.svg",
     text:
       "Develop practical point-of-care testing skills used in healthcare environments while learning accuracy and safety."
   },
@@ -538,7 +550,7 @@ const programs = [
     icon: "🩺",
     title: "Blood Pressure",
     path: "/programs/blood-pressure",
-    image: "/images/blood-pressure.jpg",
+    image: "/images/programs/blood-pressure.svg",
     text:
       "Practice accurate blood-pressure measurement, patient positioning, equipment use, and patient-centered technique."
   }
@@ -1163,7 +1175,7 @@ const programDetails = {
       "Build confidence in blood collection and patient care.",
 
     image:
-      "/images/phlebotomy.jpg",
+      "/images/programs/phlebotomy.svg",
 
     intro:
       "Phlebotomy training introduces students to the knowledge, techniques, safety practices, and patient-care skills needed when collecting blood specimens in healthcare environments.",
@@ -1211,7 +1223,7 @@ const programDetails = {
       "Learn foundational EKG skills and patient preparation.",
 
     image:
-      "/images/ekg.jpg",
+      "/images/programs/ekg.svg",
 
     intro:
       "Our EKG skills training focuses on foundational knowledge and practical techniques for preparing patients, setting up equipment, placing leads, and obtaining quality EKG recordings.",
@@ -1258,7 +1270,7 @@ const programDetails = {
       "Develop practical skills used in healthcare environments.",
 
     image:
-      "/images/poct.jpg",
+      "/images/programs/poct.svg",
 
     intro:
       "Point-of-care testing, or POCT, introduces students to practical testing processes performed close to or at the point of patient care. Students learn the importance of accuracy, safety, documentation, and proper procedures.",
@@ -1305,7 +1317,7 @@ const programDetails = {
       "Practice accurate blood-pressure measurement and patient-centered technique.",
 
     image:
-      "/images/blood-pressure.jpg",
+      "/images/programs/blood-pressure.svg",
 
     intro:
       "Blood pressure measurement is a foundational healthcare skill. Students learn how to prepare patients, select appropriate equipment, position the patient correctly, and obtain accurate readings.",
@@ -1688,173 +1700,18 @@ function WhyChoosePage() {
 ========================================================= */
 
 function EnrollmentPage() {
-
   return (
     <>
-
       <PageHero
         eyebrow="Start Your Journey"
         title="Let's Build"
         accent="Your Future"
-        text="Take the first step toward expanding your healthcare skills."
+        text="Enroll in our six-week healthcare skills training program and choose the payment option that works for you."
       />
-
-
-      <section className="section enrollment-page">
-
-        <div className="enrollment-grid">
-
-          <Reveal>
-
-            <div className="enrollment-info">
-
-              <span className="eyebrow">
-                Your Next Step
-              </span>
-
-              <h2>
-                Ready to Begin?
-              </h2>
-
-              <p>
-                Whether you are beginning your
-                healthcare journey or adding new
-                skills to your professional
-                toolbox, Healing Hands Together
-                is here to help.
-              </p>
-
-
-              <div className="enrollment-step">
-
-                <span>
-                  01
-                </span>
-
-                <div>
-
-                  <h3>
-                    Choose Your Training
-                  </h3>
-
-                  <p>
-                    Explore our healthcare skills
-                    programs.
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div className="enrollment-step">
-
-                <span>
-                  02
-                </span>
-
-                <div>
-
-                  <h3>
-                    Connect With Us
-                  </h3>
-
-                  <p>
-                    Reach out for enrollment
-                    information and next steps.
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div className="enrollment-step">
-
-                <span>
-                  03
-                </span>
-
-                <div>
-
-                  <h3>
-                    Start Learning
-                  </h3>
-
-                  <p>
-                    Begin building practical
-                    healthcare skills.
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </Reveal>
-
-
-          <Reveal>
-
-            <div className="enrollment-card">
-
-              <div className="enrollment-card-icon">
-                🩷
-              </div>
-
-              <h2>
-                Get Started
-              </h2>
-
-              <p>
-                Enrollment information,
-                upcoming classes, and payment
-                options can be provided here.
-              </p>
-
-
-              <div className="price-box">
-
-                <span>
-                  Starting Deposit
-                </span>
-
-                <strong>
-                  $700
-                </strong>
-
-                <small>
-                  Weekly or bi-weekly
-                  payment options available
-                </small>
-
-              </div>
-
-
-              <button
-                className="primary-button full-button"
-                onClick={() =>
-                  window.location.href =
-                    "mailto:info@healinghandstogether.com"
-                }
-              >
-                Contact Us
-                <span>→</span>
-              </button>
-
-            </div>
-
-          </Reveal>
-
-        </div>
-
-      </section>
-
+      <EnrollmentFlow />
     </>
   );
 }
-
 
 /* =========================================================
    APP
@@ -1943,6 +1800,33 @@ export default function App() {
           />
 
           <Route
+            path="/student-login"
+            element={
+              <PageTransition>
+                <StudentLogin />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/student-portal"
+            element={
+              <PageTransition>
+                <StudentPortal />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/admin"
+            element={
+              <PageTransition>
+                <AdminPortal />
+              </PageTransition>
+            }
+          />
+
+          <Route
             path="/why-choose-us"
             element={
               <PageTransition>
@@ -1972,3 +1856,4 @@ export default function App() {
     </>
   );
 }
+
